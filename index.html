@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Catálogo de Servicios | Avila Mora Soluciones</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* =========================================
+       ESTILOS ORIGINALES AMS (AVILA MORA SOLUCIONES)
+       ========================================= */
+    :root {
+      --primary: #6366f1;
+      --secondary: #ec4899;
+      --tertiary: #10b981;
+      --gold: #f59e0b;
+      --dark: #0f172a;
+      --dark-2: #070b18;
+      --light: #f8fafc;
+      --muted: #94a3b8;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.22);
+      --radius: 26px;
+      --container: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      line-height: 1.6;
+      color: var(--light);
+      background:
+        radial-gradient(1200px 600px at 12% 8%, rgba(99, 102, 241, 0.15), transparent 55%),
+        radial-gradient(900px 500px at 82% 12%, rgba(236, 72, 153, 0.12), transparent 55%),
+        linear-gradient(180deg, var(--dark), var(--dark-2));
+      background-attachment: fixed;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--container), 100%); margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      padding: 20px 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gradient); box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.10); }
+    .brand-text { font-size: 1.5rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+    .brand-sub { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 2px; }
+
+    /* Botones */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px 24px; border-radius: 999px; font-weight: 900; font-size: 0.95rem;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; border: none;
+    }
+    .btn-primary { background: var(--gradient); color: #fff; box-shadow: 0 14px 28px rgba(99, 102, 241, 0.26); }
+    .btn-wa { background: #25d366; color: #fff; box-shadow: 0 16px 34px rgba(0,0,0,0.22); }
+    .btn-ghost { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-wide { width: 100%; }
+
+    /* Tipografía Hero */
+    .hero { padding: 80px 0; text-align: center; }
+    .hero h1 { font-size: clamp(2.2rem, 4.5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: var(--tertiary); }
+    .hero .lead { font-size: 1.2rem; color: var(--muted); max-width: 700px; margin: 0 auto 40px; font-weight: 500; }
+    .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .badge { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 800; color: var(--light); }
+    .badge i { color: var(--gold); }
+
+    /* Grid y Tarjetas */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+    .card {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 30px; transition: transform 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-8px); border-color: rgba(99,102,241,0.3); background: rgba(255,255,255,0.05); }
+    .price-tag { font-size: 3.5rem; font-weight: 900; color: var(--light); margin: 10px 0; }
+    .card h3 { margin: 0; font-size: 1.5rem; font-weight: 800; }
+    .card p.desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+    .bullets { list-style: none; padding: 0; margin: 0 0 30px 0; flex-grow: 1; }
+    .bullets li { display: flex; gap: 12px; margin-bottom: 15px; color: rgba(226,232,240,0.95); font-weight: 600; font-size: 0.95rem; align-items: flex-start; }
+    .bullets i { color: var(--tertiary); font-size: 1.2rem; margin-top: 2px; }
+
+    /* Sección Informativa */
+    .info-section { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 0; margin-top: 60px; }
+    .info-box { text-align: center; max-width: 800px; margin: 0 auto; }
+    .info-box h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; }
+    .info-box p { color: var(--muted); font-size: 1.1rem; }
+    .pay-methods { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+    .pay-pill { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 999px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+
+    /* Footer & Flotante */
+    footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 50px; color: var(--muted); font-weight: 600; }
+    .fab-wa { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 20px; display: grid; place-items: center; font-size: 30px; box-shadow: var(--shadow-soft); z-index: 2000; transition: transform 0.2s; }
+    .fab-wa:hover { transform: translateY(-5px) scale(1.05); }
+
+    /* Highlight badge para el más vendido */
+    .popular-card { border-color: rgba(236, 72, 153, 0.4); position: relative; }
+    .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gradient); padding: 5px 15px; border-radius: 999px; font-size: 0.8rem; font-weight: 900; letter-spacing: 1px; color: #fff; }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div>
+          <div class="brand-text">Avila Mora</div>
+          <div class="brand-sub">SOLUCIONES</div>
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-ghost" href="https://avilamorasoluciones.github.io/ams/" target="_blank">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Web Principal
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="badge-row">
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Datos Seguros</span>
+        <span class="badge"><i class="fa-solid fa-face-smile"></i> Muy fácil de usar</span>
+        <span class="badge"><i class="fa-solid fa-handshake"></i> Sin mensualidades</span>
+      </div>
+      <h1>Sistematiza tu negocio<br><span>sin complicaciones técnicas.</span></h1>
+      <p class="lead">Si llevas tus ventas en cuadernos o tus clientes te piden el catálogo a cada rato, nosotros te armamos una solución a tu medida. <strong>Tú vendes, nosotros nos encargamos de la tecnología.</strong></p>
+    </div>
+  </header>
+
+  <!-- CATALOGO DE SERVICIOS -->
+  <section class="container">
+    <div class="grid-3">
+      
+      <!-- SERVICIO 1 -->
+      <div class="card">
+        <h3>Menú o Catálogo</h3>
+        <p class="desc">Para comida rápida, bodegones o tiendas de ropa.</p>
+        <div class="price-tag">$70</div>
+        <ul class="bullets">
+          <li><i class="fa-solid fa-circle-check"></i> Tus clientes ven todo en su celular sin instalar nada.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Botón directo a tu WhatsApp con el pedido armado.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Diseño con tu logo y colores.</li>
+        </ul>
+        <a class="btn btn-ghost btn-wide mb-3" style="margin-bottom: 15px;" href="https://avilamorasoluciones.github.io/landing/" target="_blank">
+          <i class="fa-solid fa-eye"></i> Ver Demo
+        </a>
+        <a class="btn btn-wa btn-wide" href="https://wa.me/573052547072?text=Hola%20Avila%20Mora%20Soluciones!%20Me%20interesa%20el%20Catálogo%20QR%20de%2070$" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Lo quiero
+        </a>
+      </div>
+
+      <!-- SERVICIO 2 (DESTACADO) -->
+      <div class="card popular-card">
+        <div class="popular-badge">MÁS VENDIDO</div>
+        <h3>Página Web Profesional</h3>
+        <p class="desc">Para clínicas, agencias, talleres o servicios.</p>
+        <div class="price-tag">$120</div>
+        <ul class="bullets">
+          <li><i class="fa-solid fa-circle-check"></i> Genera confianza y atrae nuevos clientes.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Múltiples secciones: Quiénes somos, Servicios, Contacto.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Funciona perfecto en cualquier teléfono o computadora.</li>
+        </ul>
+        <a class="btn btn-ghost btn-wide mb-3" style="margin-bottom: 15px;" href="https://avilamorasoluciones.github.io/multipages/" target="_blank">
+          <i class="fa-solid fa-eye"></i> Ver Demo
+        </a>
+        <a class="btn btn-primary btn-wide" href="https://wa.me/573052547072?text=Hola%20Avila%20Mora%20Soluciones!%20Me%20interesa%20la%20Página%20Web%20Profesional%20de%20120$" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Lo quiero
+        </a>
+      </div>
+
+      <!-- SERVICIO 3 (SISTEMAS OFFLINE/A MEDIDA) -->
+      <div class="card">
+        <h3>Sistema a Medida</h3>
+        <p class="desc">Convertimos tu Excel o cuaderno en un programa real.</p>
+        <div class="price-tag">$150</div>
+        <ul class="bullets">
+          <li><i class="fa-solid fa-bolt"></i>Funciona directo en tu computadora o celular</li>
+          <li><i class="fa-solid fa-circle-check"></i> Control de inventario, ventas, compras, clientes, todo lo que necesites.</li>
+          <li><i class="fa-solid fa-circle-check"></i> Pantallas limpias hechas exclusivamente para lo que necesita tu negocio.</li>
+        </ul>
+        <!-- Sin botón de demo, directo al WhatsApp -->
+        <a class="btn btn-wa btn-wide" style="margin-top: auto;" href="https://wa.me/573052547072?text=Hola%20Avila%20Mora%20Soluciones!%20Quiero%20convertir%20mi%20desorden%20en%20un%20sistema%20a%20medida%20de%20150$" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> Lo quiero
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPLICACIÓN TÉCNICA (Cero Mensualidades / Offline) -->
+  <section class="info-section">
+    <div class="container info-box">
+      <h2>Cuentas Claras, Cero Mensualidades</h2>
+      <p>Nosotros cobramos por construir tu página o sistema, y punto. Si es una web o menú, la alojamos en nuestra infraestructura sin que tengas que pagar más. Y si es un sistema de inventario, te lo instalamos directo en tu equipo para que funcione a la perfección, <strong>incluso si se cae el internet.</strong></p>
+      
+      <div class="pay-methods">
+        <div class="pay-pill"><i class="fa-brands fa-btc" style="color: #f3ba2f; font-size: 1.5rem;"></i> Pagos por Binance</div>
+        <div class="pay-pill"><i class="fa-solid fa-building-columns" style="color: #741bdf; font-size: 1.5rem;"></i> Pagos por Zelle</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL Y FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 5px;">Desarrollado con excelencia por <strong>Avila Mora Soluciones</strong></p>
+      <p style="font-size: 0.85rem; margin-top: 0;">Impulsando negocios con tecnología accesible.</p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a class="fab-wa" href="https://wa.me/573052547072?text=Hola%20Avila%20Mora%20Soluciones!%20Vengo%20del%20catálogo%20y%20quiero%20mejorar%20la%20tecnología%20de%20mi%20negocio." target="_blank" title="Escríbenos por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
